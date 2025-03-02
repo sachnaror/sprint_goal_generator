@@ -217,3 +217,7 @@ Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lif
 Happy coding! 🎯🔥
 
 
+
+
+
+![alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/homesachin/Desktop/Screenshot%202025-03-03%20at%203.38.31%E2%80%AFAM.png?version%3D1740957576324)
