@@ -8,10 +8,3 @@ venv/
 .vscode/
 venv
 
-*.pyc
-__pycache__/
-env/
-venv/
-db.sqlite3
-.env
-/static/
