@@ -1,142 +1,154 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint Goal Generator</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            height: 100vh;
-            background-color: #181818;
-            color: white;
-        }
-
-        .sidebar {
-            width: 320px;
-            padding: 20px;
-            background: #222;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            border-right: 2px solid #333;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            padding: 10px;
-            border: 1px solid #555;
-            background: #333;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .button {
-            background: #28a745;
-            border: none;
-            padding: 12px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script defer src="/static/js/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Configuration</h2>
 
-        <div class="input-group">
-            <label>JIRA_EMAIL</label>
-            <input type="email" id="jiraEmail" onblur="loadStoredData()">
-        </div>
+<div class="container-fluid d-flex">
+    <!-- Sidebar Configuration (Left-Hand Side) -->
+    <div class="sidebar p-4">
+        <h4 class="text-white">Configuration</h4>
+        <form id="configForm">
+            <label for="jira_base_url">JIRA_BASE_URL</label>
+            <input type="text" id="jira_base_url" class="form-control">
 
-        <div class="input-group">
-            <label>JIRA_BASE_URL</label>
-            <input type="text" id="jiraBaseUrl">
-        </div>
+            <label for="jira_email">JIRA_EMAIL</label>
+            <input type="email" id="jira_email" class="form-control">
 
-        <div class="input-group">
-            <label>JIRA_API_TOKEN</label>
-            <input type="password" id="jiraApiToken">
-        </div>
+            <label for="jira_api_token">JIRA_API_TOKEN</label>
+            <input type="password" id="jira_api_token" class="form-control">
 
-        <div class="input-group">
-            <label>BOARD_ID</label>
-            <input type="text" id="boardId">
-        </div>
+            <button type="button" class="btn btn-primary w-100 mt-3" id="connect_jira">Connect to Jira</button>
+            <p id="board_status" class="text-success"></p>
 
-        <div class="input-group">
-            <label>SPRINT_NAME</label>
-            <input type="text" id="sprintName">
-        </div>
+            <label for="board_id">BOARD_ID</label>
+            <select id="board_id" class="form-control" disabled>
+                <option value="">Fetching boards...</option>
+            </select>
+            <p id="sprint_status" class="text-success"></p>
 
-        <div class="input-group">
-            <label>OPENAI_API_KEY</label>
-            <input type="password" id="openaiApiKey">
-        </div>
+            <label for="sprint_id">SPRINT_NAME</label>
+            <select id="sprint_id" class="form-control" disabled>
+                <option value="">Select a board first</option>
+            </select>
+            <p id="issues_status" class="text-success"></p>
 
-        <button class="button" onclick="saveUserData()">Save & Generate Goals</button>
+            <label for="openai_api_key">OpenAI API Key</label>
+            <input type="password" id="openai_api_key" class="form-control" required>
+
+            <button type="button" class="btn btn-success w-100 mt-3" id="generate_goals" disabled>Show me the magic</button>
+        </form>
     </div>
 
-    <div class="content">
-        <h1>Sprint Goal Generator</h1>
+    <!-- Right-Hand Side: Sprint Goal Generator Section -->
+    <div class="content p-4">
+        <h2 class="text-white">Sprint Goal Generator</h2>
+        <p class="text-warning">
+            Feed me the configuration on LHS --> See the magic
+        </p>
+
+        <h4 class="text-white">Input:</h4>
+        <p><strong>Board ID:</strong> <span id="dummy_board_id"></span></p>
+        <p><strong>Sprint Name:</strong> <span id="dummy_sprint_name"></span></p>
+
+        <h4 class="text-white">Fetched Issues:</h4>
+        <ul id="dummy_issues">
+            <li>JIRA-101: "Refactor auth module" (In Progress, High Priority)</li>
+            <li>JIRA-102: "Fix payment gateway bug" (To Do, Critical Priority)</li>
+            <li>JIRA-103: "Enhance dashboard UI" (Done, Medium Priority)</li>
+            <li>JIRA-104: "Optimize DB queries" (In Progress, High Priority)</li>
+        </ul>
+
+        <h4 class="text-white">AI-Generated Sprint Goals:</h4>
+        <ul id="sprint_goals_output">
+            <li>Goal 1: Ensure seamless authentication by refactoring auth module.</li>
+            <li>Goal 2: Fix critical payment bugs to prevent revenue loss.</li>
+            <li>Goal 3: Improve UI experience by deploying dashboard enhancements.</li>
+            <li>Goal 4: Optimize DB queries to improve system performance.</li>
+        </ul>
     </div>
+</div>
 
-    <script>
-        function saveUserData() {
-            const email = document.getElementById("jiraEmail").value;
-            if (!email) {
-                alert("Please enter Jira Email to save data.");
-                return;
-            }
-            const userData = {
-                jiraBaseUrl: document.getElementById("jiraBaseUrl").value,
-                jiraApiToken: document.getElementById("jiraApiToken").value,
-                boardId: document.getElementById("boardId").value,
-                sprintName: document.getElementById("sprintName").value,
-                openaiApiKey: document.getElementById("openaiApiKey").value
-            };
-            localStorage.setItem(email, JSON.stringify(userData));
-            alert("Data saved successfully!");
-        }
-
-        function loadStoredData() {
-            const email = document.getElementById("jiraEmail").value;
-            if (!email) return;
-            const storedData = localStorage.getItem(email);
-            if (storedData) {
-                const data = JSON.parse(storedData);
-                document.getElementById("jiraBaseUrl").value = data.jiraBaseUrl;
-                document.getElementById("jiraApiToken").value = data.jiraApiToken;
-                document.getElementById("boardId").value = data.boardId;
-                document.getElementById("sprintName").value = data.sprintName;
-                document.getElementById("openaiApiKey").value = data.openaiApiKey;
-            }
-        }
-    </script>
 </body>
 </html>
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint Goal Generator</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script defer src="/static/js/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid d-flex">
+    <!-- Sidebar Configuration (Left-Hand Side) -->
+    <div class="sidebar p-4">
+        <h4 class="text-white">Configuration</h4>
+        <form id="configForm">
+            <label for="jira_base_url">JIRA_BASE_URL</label>
+            <input type="text" id="jira_base_url" class="form-control">
+
+            <label for="jira_email">JIRA_EMAIL</label>
+            <input type="email" id="jira_email" class="form-control">
+
+            <label for="jira_api_token">JIRA_API_TOKEN</label>
+            <input type="password" id="jira_api_token" class="form-control">
+
+            <label for="board_id">BOARD_ID</label>
+            <input type="text" id="board_id" class="form-control">
+
+            <label for="sprint_name">SPRINT_NAME</label>
+            <input type="text" id="sprint_name" class="form-control">
+
+            <button type="button" class="btn btn-success w-100 mt-3" id="fetchGoals">Show me the magic</button>
+            <button id="fetchDataBtn" class="btn btn-primary">Fetch Sprint Data</button>
+        </form>
+    </div>
+
+    <!-- Right-Hand Side: Dummy Data Initially -->
+    <div class="content p-4">
+        <h2 class="text-white">Sprint Goal Generator</h2>
+        <p class="text-warning">
+            (Dummy data below will be replaced with the real AI-Generated Sprint Goals as soon as you feed me the configuration on LHS)
+        </p>
+
+        <h4 class="text-white">Input:</h4>
+        <p><strong>Board ID:</strong> <span id="dummy_board_id"></span></p>
+        <p><strong>Sprint Name:</strong> <span id="dummy_sprint_name"></span></p>
+
+        <h4 class="text-white">Fetched Issues:</h4>
+        <ul id="dummy_issues">
+            <li>JIRA-101: "Refactor auth module" (In Progress, High Priority)</li>
+            <li>JIRA-102: "Fix payment gateway bug" (To Do, Critical Priority)</li>
+            <li>JIRA-103: "Enhance dashboard UI" (Done, Medium Priority)</li>
+            <li>JIRA-104: "Optimize DB queries" (In Progress, High Priority)</li>
+        </ul>
+
+        <h4 class="text-white">AI-Generated Sprint Goals:</h4>
+        <ul id="dummy_goals">
+            <li>Goal 1: Ensure seamless authentication by refactoring auth module.</li>
+            <li>Goal 2: Fix critical payment bugs to prevent revenue loss.</li>
+            <li>Goal 3: Improve UI experience by deploying dashboard enhancements.</li>
+            <li>Goal 4: Optimize DB queries to improve system performance.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html> {% endcomment %}

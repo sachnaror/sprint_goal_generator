@@ -13,6 +13,11 @@
 │   │   ├── settings.py
 │   │   ├── urls.py
 │   │   └── wsgi.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── styles.css
+│   │   ├── js/
+│   │   │   └── script.js
 │   ├── sprint_app/
 │   │   ├── ai_processing.py
 │   │   ├── jira_api.py
@@ -23,10 +28,6 @@
 │   │   ├── tests.py
 │   │   ├── urls.py
 │   │   └── views.py
-│   │   ├── static/
-│   │   │   ├── css/
-│   │   │   │   └── styles.css
-│   │   │   ├── js/
-│   │   │   │   └── script.js
 │   │   ├── templates/
-│   │   │   └── index.html
+│   │   │   ├── index.html
+│   │   │   └── sprint_result.html

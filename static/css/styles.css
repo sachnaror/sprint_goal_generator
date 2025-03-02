@@ -1,0 +1,105 @@
+/* static/css/styles.css */
+
+body {
+    background-color: #1c1c1c;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 20%;  /* Reduced from 50% to 25% */
+    background: linear-gradient(135deg, #004e92, #004e92);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.content {
+    width: 75%;  /* Increased from 50% to 75% */
+    background: #000;
+    padding: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10px;
+    display: block;
+}
+
+.form-control {
+    background: #222;
+    color: white;
+    border: 1px solid #555;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* First button (Deep Yellow) - Connect to Jira */
+#connect_jira {
+    background-color: #fce406; /* Deep Yellow */
+    color: #000; /* Best contrast (black text) */
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+#connect_jira:hover {
+    background-color: #faee03;
+}
+
+/* Second button (Orange) - Show Me The Magic */
+#generate_goals {
+    background-color: #FF5722; /* Orange */
+    color: #fff; /* White text for contrast */
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+#generate_goals:hover {
+    background-color: #E64A19; /* Darker Orange on hover */
+}
+
+/* Enhance readability of JIRA issues & goals */
+.jira-issues, .jira-goals {
+    background: #595959;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    color: #fff;
+}
+
+.jira-issues ul, .jira-goals ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.jira-issues li, .jira-goals li {
+    background: #515151;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.loading-spinner {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
