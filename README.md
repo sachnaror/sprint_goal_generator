@@ -144,4 +144,21 @@ This project is **MIT Licensed** - Use it, modify it, and make it better! 🚀
 If sprint planning ever felt like **a chore**, let AI handle it for you! 😉
 Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lifting!
 
+
+
+## 📩 Contact
+
+| Name              | Details                             |
+|-------------------|-------------------------------------|
+| **👨‍💻 Developer**  | Sachin Arora                      |
+| **📧 Email**       | [sachnaror@gmail.com](mailto:sachnaror@gmail.com) |
+| **📍 Location**    | Noida, India                       |
+| **📂 GitHub**      | [github.com/sachnaror](https://github.com/sachnaror) |
+| **🌐 Website**     | [https://about.me/sachin-arora](https://about.me/sachin-arora) |
+| **📱 Phone**       | [+91 9560330483](tel:+919560330483) |
+
+
+
 Happy coding! 🎯🔥
+
+
