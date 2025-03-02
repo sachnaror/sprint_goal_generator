@@ -162,7 +162,44 @@ Worried about the license? **Don’t be.** Just look at Threads—it’s Twitter
 If sprint planning ever felt like **a chore**, let AI handle it for you! 😉
 Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lifting!
 
+## **DIR-Structure**
 
+```
+├── sprint_goal_generator/
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── ci-cd.yml
+│   ├── db.sqlite3
+│   ├── README.md
+│   ├── .env
+│   ├── docker-compose.yml
+│   ├── manage.py
+│   └── config/
+│   ├── sprint_goal_generator/
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── styles.css
+│   │   ├── js/
+│   │   │   └── script.js
+│   ├── sprint_app/
+│   │   ├── ai_processing.py
+│   │   ├── jira_api.py
+│   │   ├── models.py
+│   │   ├── apps.py
+│   │   ├── admin.py
+│   │   ├── utils.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   │   ├── templates/
+│   │   │   ├── index.html
+│   │   │   └── sprint_result.html
+
+```
 
 ## 📩 Contact
 
