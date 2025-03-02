@@ -28,22 +28,22 @@ Welcome to the **Sprint Goal Generator**, an AI-driven tool that revolutionizes 
 
 ---
 
-## 🧐 **Why This Approach? (And What Else We Could've Done!)**
-There are **many** ways to build this sprint goal generator, but we chose the **best balance of automation, flexibility, and power**.
+## 🧐 **Why This Approach? (And What Else I Could've Done!)**
+There are **many** ways to build this sprint goal generator, but i chose the **best balance of automation, flexibility, and power**.
 
 ### ✅ **Method Chosen: Python Django + Jira API + OpenAI API**
 - Pros: **Quick, scalable, customizable, and works with minimal setup**.
 - Cons: **Requires API tokens, might have Jira permission issues**.
 
-### 🔄 **Other Ways We Could’ve Done This!**
+### 🔄 **Other Ways I Could’ve Done This!**
 | Method | Pros | Cons |
 |--------|------|------|
 | **OAuth 2.0 (Jira Cloud)** | More secure, no API token leaks 🔐 | Complex setup, requires admin permissions ⚙️ |
 | **Jira Automation Rules** | Built-in, no coding required 🤖 | Limited customization, no AI intelligence 🧠 |
-| **Custom Jira Scripts (Groovy, Scriptrunner)** | Runs inside Jira, full control | Only works in Jira Server, steep learning curve 📜 |
+| **Custom Jira Scripts (Groovy, Script-runner)** | Runs inside Jira, full control | Only works in Jira Server, steep learning curve 📜 |
 | **Manual Sprint Planning** | No setup required 🤷 | Slow, repetitive, boring 😩 |
 
-👉 **Why did we choose the API Token method?**
+👉 **Why did I choose the API Token method?**
 - **Fastest way to get started** 🚀.
 - **No need for admin permissions** (if API access is enabled).
 - **Works for both Jira Cloud & Jira Server**.
@@ -162,7 +162,7 @@ Worried about the license? **Don’t be.** Just look at Threads—it’s Twitter
 If sprint planning ever felt like **a chore**, let AI handle it for you! 😉
 Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lifting!
 
-## **DIR-Structure**
+## 🚀 **DIR-Structure**
 
 ```
 ├── sprint_goal_generator/
