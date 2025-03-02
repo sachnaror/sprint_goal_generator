@@ -1,4 +1,4 @@
-# 🚀 Sprint Goal Generator - AI-Powered JIRA Sprint Planning
+# 🚀  AI-Powered JIRA Sprint Goal Generator
 
 
 
@@ -151,8 +151,11 @@ Want to improve this app? Feel free to fork and submit a PR!
 ---
 
 ## 📜 **License**
-This project is **MIT Licensed** - Use it, modify it, and make it better! 🚀
+Ah, licenses. Who even reads them? 🤷‍♂️
 
+This project is **MIT Licensed**—but let’s be honest, **licenses in open source are just fancy decorations**. If you think you can **modify it, improve it, and make the universe a better place**, **DO IT.** 🚀✨
+
+Worried about the license? **Don’t be.** Just look at Threads—it’s Twitter’s long-lost sibling, BlueSky is Twitter’s reflection in the multiverse, and, let’s face it, everything is just a remix! **So fork it, tweak it, and unleash your genius.** 🔥😎
 ---
 
 ## 🚀 **Final Words**
