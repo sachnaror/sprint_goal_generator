@@ -1,5 +1,20 @@
 # 🚀 Sprint Goal Generator - AI-Powered JIRA Sprint Planning
 
+
+
+
+![Sprint Goal Generator](https://img.shields.io/badge/Sprint%20Goal%20Generator-AI%20Powered-blueviolet?style=for-the-badge&logo=ai)
+![Version](https://img.shields.io/badge/version-1.0.0-orange?style=for-the-badge)
+![Django](https://img.shields.io/badge/Django-5.1.6-green?style=for-the-badge&logo=django)
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
+![Jira API](https://img.shields.io/badge/Jira%20API-Integration-blue?style=for-the-badge&logo=jira)
+![OpenAI](https://img.shields.io/badge/OpenAI-ChatGPT%20API-black?style=for-the-badge&logo=openai)
+
+![AI Magic](https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif)
+
+> 🚀 **Say goodbye to boring sprint planning!** 🎯
+> Let AI analyze your Jira issues and generate **meaningful, smart sprint goals** so you can focus on **delivering impact instead of wasting time!** ⏳💡
+>
 Welcome to the **Sprint Goal Generator**, an AI-driven tool that revolutionizes sprint planning by integrating **Jira API** with **OpenAI's language models**! 🎯
 
 ---
