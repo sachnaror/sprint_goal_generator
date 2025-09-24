@@ -1,7 +1,7 @@
-Django
-djangorestframework
-requests
-openai
-psycopg2-binary
-python-dotenv
-gunicorn
+Django==5.1.6
+djangorestframework==3.12.4
+requests==2.31.0
+openai==1.40.6
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+gunicorn==21.2.0
