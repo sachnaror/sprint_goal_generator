@@ -1,8 +1,5 @@
 # 🚀  AI-Powered JIRA Sprint Goal Generator
 
-
-
-
 ![Sprint Goal Generator](https://img.shields.io/badge/Sprint%20Goal%20Generator-AI%20Powered-blueviolet?style=for-the-badge&logo=ai)
 ![Version](https://img.shields.io/badge/version-1.0.0-orange?style=for-the-badge)
 ![Django](https://img.shields.io/badge/Django-5.1.6-green?style=for-the-badge&logo=django)
@@ -47,6 +44,87 @@ There are **many** ways to build this sprint goal generator, but i chose the **b
 - **Fastest way to get started** 🚀.
 - **No need for admin permissions** (if API access is enabled).
 - **Works for both Jira Cloud & Jira Server**.
+
+---
+
+## 🔧 **Installation Prerequisites & Troubleshooting**
+
+### **Python Version**
+This project requires **Python 3.12**.  
+If you don’t have it installed:
+
+- **Mac/Linux (Homebrew)**:
+  ```sh
+  brew install python@3.12
+  ```
+
+- **Windows (via official installer)**:  
+  Download from [Python.org](https://www.python.org/downloads/release/python-3120/).
+
+Verify installation:
+```sh
+python3 --version
+```
+
+---
+
+### **Dependency Installation**
+Dependencies are listed in `requirements.txt`. Install them after creating your virtual environment:
+
+```sh
+pip install -r requirements.txt
+```
+
+Pinned versions for stability:
+
+```
+Django==5.1.6
+djangorestframework==3.12.4
+requests==2.31.0
+openai==1.40.6
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+gunicorn==21.2.0
+```
+
+> ✅ These versions are tested with **Python 3.12** to ensure compatibility.
+
+---
+
+### **Post-Installation Verification**
+Run the following to confirm setup:
+
+```sh
+python manage.py check
+```
+
+Then start the app:
+
+```sh
+python manage.py runserver
+```
+
+If you see **“Django version 5.1.6, using settings 'config.settings'”**, the installation was successful.
+
+---
+
+### **Common Troubleshooting**
+1. **Virtual Environment Issues**
+   - If dependencies don’t install, make sure you activated the virtual environment:
+     ```sh
+     source venv/bin/activate   # Mac/Linux
+     venv\Scripts\activate      # Windows
+     ```
+
+2. **psycopg2-binary Errors**
+   - On Mac: `brew install postgresql@16`
+   - On Linux: `sudo apt install libpq-dev python3-dev`
+
+3. **OpenAI API Errors**
+   - Ensure your `.env` has the correct:
+     ```
+     OPENAI_API_KEY=sk-xxxx
+     ```
 
 ---
 
@@ -156,6 +234,7 @@ Ah, licenses. Who even reads them? 🤷‍♂️
 This project is **MIT Licensed**—but let’s be honest, **licenses in open source are just fancy decorations**. If you think you can **modify it, improve it, and make the universe a better place**, **DO IT.** 🚀✨
 
 Worried about the license? **Don’t be.** Just look at Threads—it’s Twitter’s long-lost sibling, BlueSky is Twitter’s reflection in the multiverse, and, let’s face it, everything is just a remix! **So fork it, tweak it, and unleash your genius.** 🔥😎
+
 ---
 
 ## 🚀 **Final Words**
@@ -198,7 +277,6 @@ Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lif
 │   │   ├── templates/
 │   │   │   ├── index.html
 │   │   │   └── sprint_result.html
-
 ```
 
 ## 📩 Contact
@@ -208,16 +286,12 @@ Instead of manually writing sprint goals, let **OpenAI + Jira** do the heavy lif
 | **👨‍💻 Developer**  | Sachin Arora                      |
 | **📧 Email**       | [sachnaror@gmail.com](mailto:sachnaror@gmail.com) |
 | **📍 Location**    | Noida, India                       |
-| **📂 GitHub**      | [github.com/sachnaror](https://github.com/sachnaror) |
+| **📂 GitHub**      | [github.com/sachinaror](https://github.com/sachinaror) |
 | **🌐 Website**     | [https://about.me/sachin-arora](https://about.me/sachin-arora) |
 | **📱 Phone**       | [+91 9560330483](tel:+919560330483) |
 
-
-
 Happy coding! 🎯🔥
-
 
 ## 📸 Screenshot
 
 ![Sprint Goal Generator UI](https://github.com/user-attachments/assets/efb08bd8-607d-4919-b01b-89ca22d1b678)
-
